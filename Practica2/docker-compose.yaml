@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: python main.py
+    ports:
+      - 8000:5000
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:9.6.2-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: yeferson
+      POSTGRES_PASSWORD: practica
+      POSTGRES_DB: practicaDocker
