@@ -6,12 +6,11 @@ jobs:
     build:
       runs-on: ubuntu-latest
       name: Deploy to practica3.surge.sh
-
-    steps:
-      - uses: actions/checkout@v3
-      -  uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - run: npm install -g surge
-      - run: surge ./practica3 ${{ secrets.surge_login }} --token ${{ secrets.surge_token }}
-        
+      steps:
+        - uses: actions/checkout@v3
+        -  uses: actions/setup-node@v3
+          with:
+            node-version: 16
+        - run: npm install -g surge
+        - run: surge ./practica3 ${{ secrets.surge_login }} --token ${{ secrets.surge_token }}
+          
