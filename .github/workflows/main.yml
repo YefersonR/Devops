@@ -1,16 +1,16 @@
 name: Surge Practice
 
-on: push
+on: [push]
 
 jobs:
-  my-job:
-    name: My job
+  build:
     runs-on: ubuntu-latest
+    name: Deploy to practica3.surge.sh
     steps:
-      - name: Deploy to practica3.surge.sh
-      -  uses: actions/setup-node@v3
-        with:
-          node-version: 16
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+          with:
+            node-version: 16
       - run: npm install -g surge
       - run: surge ./practica3 ${{ secrets.surge_login }} --token ${{ secrets.surge_token }}
-        
+          
